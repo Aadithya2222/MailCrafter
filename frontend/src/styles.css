@@ -1,0 +1,165 @@
+.app {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.app-header p {
+  margin: 0.25rem 0 0;
+  color: #9ca3af;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.panel {
+  background: #020617;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #1f2937;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.field-label {
+  display: block;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+textarea,
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #374151;
+  background: #020617;
+  color: #e5e7eb;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+textarea:focus,
+input:focus {
+  outline: 2px solid #38bdf8;
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.field-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.field {
+  flex: 1;
+}
+
+.primary {
+  margin-top: 0.75rem;
+  background: linear-gradient(to right, #38bdf8, #6366f1);
+  color: #020617;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.recorder {
+  margin-bottom: 0.75rem;
+}
+
+.record-btn {
+  width: 100%;
+  border-radius: 999px;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid #374151;
+  background: #111827;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.record-btn.recording {
+  border-color: #f97316;
+  background: #7f1d1d;
+}
+
+.contacts-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.75rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.contacts-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #111827;
+  font-size: 0.9rem;
+}
+
+.contact-name {
+  font-weight: 500;
+}
+
+.contact-email {
+  color: #9ca3af;
+  margin-left: 0.5rem;
+}
+
+.contacts-form {
+  margin-top: 0.75rem;
+}
+
+.contacts-form button {
+  margin-top: 0.5rem;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
+
+.status-bar {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 1rem;
+  }
+}
+

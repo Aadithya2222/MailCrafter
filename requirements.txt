@@ -1,0 +1,27 @@
+# FastAPI and server
+# Use unpinned versions to support newer Python (e.g. 3.14) wheels.
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+
+# Gemini API (official current SDK)
+google-genai>=1.0.0
+
+# Speech-to-Text (Whisper)
+# NOTE: `openai-whisper` currently fails to build on some very new Python versions
+# (e.g. Python 3.14). The backend will still run using the stub STT mode.
+# If you want real Whisper STT, install it separately in an environment where it builds.
+
+# Email
+# SMTP is built-in to Python, no extra package needed
+
+# Database
+# SQLite is built-in to Python, no extra package needed
+
+# CORS
+# Handled by FastAPI middleware
+
+# Logging
+# Built-in to Python
