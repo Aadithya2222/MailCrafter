@@ -17,7 +17,7 @@ phases:
       - npm run build
 
       - echo "Uploading build to S3"
-      - aws s3 sync dist/ s3://clouddeploy-pro-hosting --delete
+      - aws s3 sync dist/ s3://$BUCKET_NAME --delete
 
 artifacts:
   files:
