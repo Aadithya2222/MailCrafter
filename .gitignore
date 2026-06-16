@@ -63,3 +63,7 @@ tmp/
 *.m4a
 *.ogg
 *.flac
+
+
+node_modules/
+frontend/node_modules/
