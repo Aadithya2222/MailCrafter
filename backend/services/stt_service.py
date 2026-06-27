@@ -16,19 +16,25 @@ class STTService:
     def __init__(self):
         self.use_stub = settings.USE_WHISPER_STUB
         self.model = None
-        
+
+        print("USE_WHISPER_STUB =", self.use_stub)
+
         if not self.use_stub:
             try:
                 import whisper
+
+                print("Loading Whisper model...")
                 self.model = whisper.load_model(settings.WHISPER_MODEL)
-                logger.info(f"Loaded Whisper model: {settings.WHISPER_MODEL}")
-            except ImportError:
-                logger.warning("Whisper not installed. Using stub implementation.")
+
+                print("Loaded Whisper model successfully!")
+
+            except ImportError as e:
+                print("IMPORT ERROR:", e)
                 self.use_stub = True
+
             except Exception as e:
-                logger.error(f"Error loading Whisper model: {e}. Using stub.")
+                print("WHISPER LOAD ERROR:", e)
                 self.use_stub = True
-    
     async def transcribe(self, audio_data: bytes, content_type: str) -> str:
         """
         Transcribe audio data to text.

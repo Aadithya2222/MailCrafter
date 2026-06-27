@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Recorder from "./Recorder.jsx";
 import { api } from "./api.js";
 
@@ -12,6 +12,7 @@ function App() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
+  useEffect(() => { refreshContacts(); }, []);
 
   const handleTranscription = (data) => {
     setTranscribedText(data.transcribed_text || "");
@@ -60,6 +61,12 @@ function App() {
       });
       setRecipientEmail(res.recipient_email || "");
       setStatus("Email sent successfully.");
+
+      setTranscribedText("");
+      setRecipientName("");
+      setIntent("");
+      setEmailBody("");
+      setSubject("");
     } catch (err) {
       setStatus(err.message || "Failed to send email.");
     } finally {
@@ -193,9 +200,26 @@ function App() {
 
           <ul className="contacts-list">
             {contacts.map((c) => (
-              <li key={c.id}>
+              <li key={c.email}>
                 <span className="contact-name">{c.name}</span>
-                <span className="contact-email">{c.email}</span>
+
+                <span className="contact-email">
+                  {c.email}
+                </span>
+
+                <button
+                  onClick={async () => {
+                    try {
+                      await api.deleteContact(c.email);
+                      await refreshContacts();
+                      setStatus("Contact deleted.");
+                    } catch (err) {
+                      setStatus(err.message);
+                    }
+                  }}
+                >
+                  Delete
+                </button>
               </li>
             ))}
             {contacts.length === 0 && (

@@ -163,3 +163,15 @@ input:focus {
   }
 }
 
+.contacts-list button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.contacts-list button:hover {
+  background: #b91c1c;
+}

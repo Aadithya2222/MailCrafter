@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:8000/api/v1";
 /**
  * Simple microphone recorder component for accessibility:
  * - Big toggle button
@@ -69,10 +71,13 @@ function Recorder({ onTranscribed }) {
       const formData = new FormData();
       formData.append("audio_file", blob, "recording.webm");
 
-      const res = await fetch("/api/v1/audio/transcribe", {
-        method: "POST",
-        body: formData
-      });
+      const res = await fetch(
+  `${API_BASE}/audio/transcribe`,
+  {
+    method: "POST",
+    body: formData
+  }
+);
       if (!res.ok) {
         const text = await res.text();
         throw new Error(text || "Transcription failed");

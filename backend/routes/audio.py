@@ -43,6 +43,7 @@ async def transcribe_audio(audio_file: UploadFile = File(...)):
     try:
         # Convert speech to text
         transcribed_text = await stt_service.transcribe(contents, audio_file.content_type)
+        print("TRANSCRIBED:", transcribed_text)
         
         if not transcribed_text or not transcribed_text.strip():
             raise HTTPException(

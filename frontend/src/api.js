@@ -1,4 +1,5 @@
-const API_BASE = "http://localhost:8000/api/v1";
+console.log("API URL:", import.meta.env.VITE_API_URL);
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1";
 
 export const api = {
   async generateEmail(payload) {
@@ -17,6 +18,22 @@ export const api = {
 
     return res.json();
   },
+
+  async deleteContact(email) {
+  const res = await fetch(
+    `${API_BASE}/contacts/${encodeURIComponent(email)}`,
+    {
+      method: "DELETE"
+    }
+  );
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || "Failed to delete contact");
+  }
+
+  return true;
+},
 
   async sendEmail(payload) {
     const res = await fetch(`${API_BASE}/email/send`, {
