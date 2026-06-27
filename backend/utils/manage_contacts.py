@@ -8,7 +8,7 @@ from pathlib import Path
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from backend.services.recipient_resolver import RecipientResolver
+from services.recipient_resolver import RecipientResolver
 
 
 async def add_contact(name: str, email: str):
@@ -24,7 +24,7 @@ async def add_contact(name: str, email: str):
 async def list_contacts():
     """List all contacts in the database."""
     import sqlite3
-    from backend.config import settings
+    from config import settings
     
     db_path = settings.DATABASE_URL.replace("sqlite:///", "")
     conn = sqlite3.connect(db_path)

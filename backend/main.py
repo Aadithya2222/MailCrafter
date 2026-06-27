@@ -3,8 +3,8 @@ FastAPI application entry point for Speech-to-Email Assistant.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import audio, email, contacts
-from backend.config import settings
+from routes import audio, email, contacts
+from config import settings
 
 app = FastAPI(
     title="MailCrafter API",

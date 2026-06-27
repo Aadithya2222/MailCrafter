@@ -5,7 +5,7 @@ import io
 import logging
 from typing import Optional
 
-from backend.config import settings
+from config import settings
 
 logger = logging.getLogger(__name__)
 

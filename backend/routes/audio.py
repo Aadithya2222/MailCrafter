@@ -4,9 +4,9 @@ Audio processing routes for speech-to-text conversion.
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from fastapi.responses import JSONResponse
 
-from backend.services.stt_service import STTService
-from backend.services.intent_parser import IntentParser
-from backend.config import settings
+from services.stt_service import STTService
+from services.intent_parser import IntentParser
+from config import settings
 
 router = APIRouter()
 stt_service = STTService()

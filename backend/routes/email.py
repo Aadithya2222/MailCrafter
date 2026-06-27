@@ -5,9 +5,9 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 from typing import Optional
 
-from backend.services.gemini_service import GeminiService
-from backend.services.email_service import EmailService
-from backend.services.recipient_resolver import RecipientResolver
+from services.gemini_service import GeminiService
+from services.email_service import EmailService
+from services.recipient_resolver import RecipientResolver
 
 router = APIRouter()
 

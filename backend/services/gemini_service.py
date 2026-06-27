@@ -11,7 +11,7 @@ except ImportError:
     GEMINI_AVAILABLE = False
     logging.warning("google-genai not installed. Please install it to use Gemini API.")
 
-from backend.config import settings
+from config import settings
 
 logger = logging.getLogger(__name__)
 

@@ -6,7 +6,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, EmailStr
 from typing import List
 
-from backend.services.recipient_resolver import RecipientResolver
+from services.recipient_resolver import RecipientResolver
 
 router = APIRouter()
 
